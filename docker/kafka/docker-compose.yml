@@ -15,23 +15,22 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,INTERNAL:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_NUM_PARTITIONS: 1
       KAFKA_LOG_RETENTION_HOURS: 24
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
     networks:
       - kafka-net
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "./opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1",
-        ]
+      test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka-1:9094 > /dev/null 2>&1 || exit 1" ]
       interval: 10s
       timeout: 10s
       retries: 5
+      start_period: 20s
     volumes:
       - kafka-data-1:/var/lib/kafka/data
 
@@ -49,23 +48,23 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,INTERNAL:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_NUM_PARTITIONS: 1
       KAFKA_LOG_RETENTION_HOURS: 24
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
     networks:
       - kafka-net
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "./opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1",
-        ]
+      test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka-2:9094 > /dev/null 2>&1 || exit 1" ]
       interval: 10s
       timeout: 10s
       retries: 5
+      start_period: 20s
+
     volumes:
       - kafka-data-2:/var/lib/kafka/data
 
@@ -83,28 +82,29 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,INTERNAL:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_NUM_PARTITIONS: 1
       KAFKA_LOG_RETENTION_HOURS: 24
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
     networks:
       - kafka-net
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "./opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1",
-        ]
+      test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka-3:9094 > /dev/null 2>&1 || exit 1" ]
       interval: 10s
       timeout: 10s
       retries: 5
+      start_period: 20s
     volumes:
       - kafka-data-3:/var/lib/kafka/data
 
   kafka-connect:
-    image: confluentinc/cp-kafka-connect:latest
+    build:
+      context: .
+      dockerfile: kafka-connect/Dockerfile
     hostname: kafka-connect
     container_name: kafka-connect
     ports:
@@ -131,21 +131,13 @@ services:
 
       CONNECT_KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
       CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      CONNECT_KEY_CONVERTER_BASIC_AUTH_CREDENTIALS_SOURCE: USER_INFO
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_BASIC_AUTH_USER_INFO: admin:12345
+
       CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
       CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
-
-      CONNECT_KEY_CONVERTER_BASIC_AUTH_CREDENTIALS_SOURCE: USER_INFO
-      CONNECT_KEY_CONVERTER_BASIC_AUTH_USER_INFO: admin:12345
       CONNECT_VALUE_CONVERTER_BASIC_AUTH_CREDENTIALS_SOURCE: USER_INFO
-      CONNECT_VALUE_CONVERTER_BASIC_AUTH_USER_INFO: admin:12345
-
-    command:
-      - /bin/bash
-      - -c
-      - |
-        confluent-hub install --no-prompt confluentinc/kafka-connect-avro-converter:latest; 
-        confluent-hub install --no-prompt debezium/debezium-connector-mysql:latest;
-        /etc/confluent/docker/run
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_BASIC_AUTH_USER_INFO: admin:12345
 
     depends_on:
       - kafka-1
@@ -169,18 +161,13 @@ services:
 
       # --- CẤU HÌNH BASIC AUTH (THEO JAAS) ---
       SCHEMA_REGISTRY_AUTHENTICATION_METHOD: BASIC
-      # Realm phải khớp với tên section trong jaas_config.conf
       SCHEMA_REGISTRY_AUTHENTICATION_REALM: SchemaRegistry-Realm
-      # Liệt kê tất cả các role được phép truy cập
       SCHEMA_REGISTRY_AUTHENTICATION_ROLES: admin,READ,WRITE
 
-      # Cung cấp đường dẫn tới file JAAS config cho JVM
       SCHEMA_REGISTRY_OPTS: "-Djava.security.auth.login.config=/etc/schema-registry/jaas_config.conf"
 
     volumes:
-      # Mount file jaas_config.conf vào đường dẫn được chỉ định bởi SCHEMA_REGISTRY_OPTS
       - ./jaas_config.conf:/etc/schema-registry/jaas_config.conf
-      # Mount file password vào đường dẫn được chỉ định trong jaas_config.conf
       - ./password-file.txt:/etc/schema-registry/password-file.txt
 
     depends_on:

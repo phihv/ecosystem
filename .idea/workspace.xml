@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="820d538b-1224-47ca-8720-1d7c77aa8a7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/datasource/PrimaryDataSourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/kafka/jaas_config.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/kafka/password-file.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/mysql/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/mysql/init-scripts/002_users.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env-application" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/kafka/kafka-connect/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +105,7 @@
       <recent name="D:\project\phihv\ecosystem\ecosystem\adapter\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.kafka: Compose Deployment">
+  <component name="RunManager" selected="Docker.kafka.kafka-connect: Compose Deployment">
     <configuration name="AdapterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/env-application" />
@@ -190,8 +178,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.kafka: Compose Deployment" />
         <item itemvalue="Docker.kafka.kafka-connect: Compose Deployment" />
+        <item itemvalue="Docker.kafka: Compose Deployment" />
         <item itemvalue="Docker.mysql.db: Compose Deployment" />
         <item itemvalue="Docker.kafka.kafka-ui: Compose Deployment" />
         <item itemvalue="Spring Boot.AdapterApplication" />
@@ -214,7 +202,7 @@
       <option name="presentableId" value="Default" />
       <updated>1763830630662</updated>
       <workItem from="1763830634769" duration="3547000" />
-      <workItem from="1763905123541" duration="6788000" />
+      <workItem from="1763905123541" duration="11118000" />
     </task>
     <servers />
   </component>
