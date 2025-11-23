@@ -1,0 +1,25 @@
+version: '3.8' # Use a recent Docker Compose file format
+services:
+  db:
+    image: mysql:8.0 # Specify the MySQL image and tag
+    container_name: mysql_db # A custom name for your container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345 # Set the root password
+      MYSQL_DATABASE: ecosystem # Optional: Create a default database
+      MYSQL_USER: user # Optional: Create a default user
+      MYSQL_PASSWORD: 12345 # Optional: Set password for the default user
+    ports:
+      - "3306:3306" # Map host port 3306 to container port 3306
+    volumes:
+      - mysql_data:/var/lib/mysql # Persist data using a named volume
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    restart: always # Automatically restart the container if it stops
+    networks:
+      - kafka-net
+
+volumes:
+  mysql_data: # Define the named volume for data persistence
+
+networks:
+  kafka-net:
+    external: true
