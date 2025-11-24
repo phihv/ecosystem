@@ -11,14 +11,17 @@ services:
     ports:
       - "3306:3306" # Map host port 3306 to container port 3306
     volumes:
-      - mysql_data:/var/lib/mysql # Persist data using a named volume
+      - mysql_data:/var/lib/mysql
+      - ./db/logs:/var/log/mysql
       - ./init-scripts:/docker-entrypoint-initdb.d
-    restart: always # Automatically restart the container if it stops
+    command:
+      --general-log=1
+      --general_log_file=/var/log/mysql/general.log
+    restart: always
     networks:
       - kafka-net
-
 volumes:
-  mysql_data: # Define the named volume for data persistence
+  mysql_data:
 
 networks:
   kafka-net:

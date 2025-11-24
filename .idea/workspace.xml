@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="820d538b-1224-47ca-8720-1d7c77aa8a7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/kafka/kafka-connect/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/elk/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/elk/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/elk/logstash/pipeline/logstash.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/elk/setup/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/elk/setup/entrypoint.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/mysql/filebeat/config/filebeat.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -27,17 +37,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ecosystem" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ecosystem" type="f1a62948:ProjectNode" />
-                <item name="adapter" type="2d1252cf:ModuleNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -54,11 +54,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.2.0-bin/11i5gvueggl8a5cioxuftxrik/gradle-9.2.0" javaHome="$USER_HOME$/.jdks/openjdk-25.0.1" gradleVersion="9.2.0" />
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "phihv"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/phihv/ecosystem.git",
+    "accountId": "ac8db76f-bee8-4b7f-a202-4ad7effa3cad"
+  }
+}]]></component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\phihv\.gradle\wrapper\dists\gradle-9.2.0-bin\11i5gvueggl8a5cioxuftxrik\gradle-9.2.0" javaHome="C:\Users\phihv\.jdks\openjdk-25.0.1" gradleVersion="9.2.0" />
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\php\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -73,10 +86,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Docker.elk: Compose Deployment.executor": "Run",
     "Docker.kafka.kafka-connect: Compose Deployment.executor": "Run",
     "Docker.kafka.kafka-ui: Compose Deployment.executor": "Run",
     "Docker.kafka: Compose Deployment.executor": "Run",
     "Docker.mysql.db: Compose Deployment.executor": "Run",
+    "Docker.mysql.filebeat: Compose Deployment.executor": "Run",
     "Docker.mysql: Compose Deployment.executor": "Run",
     "Gradle.Build ecosystem.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -88,51 +103,43 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.AdapterApplication.executor": "Debug",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/project/phihv/ecosystem/ecosystem/docker/mysql/init-scripts",
+    "last_opened_file_path": "D:/projects/phihv/ecosystem/docker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\phihv\ecosystem\docker" />
       <recent name="D:\project\phihv\ecosystem\ecosystem\docker\mysql\init-scripts" />
       <recent name="D:\project\phihv\ecosystem\ecosystem\adapter\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.kafka.kafka-connect: Compose Deployment">
-    <configuration name="AdapterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="envFilePaths">
-        <option value="$PROJECT_DIR$/env-application" />
-      </option>
+  <component name="RunManager" selected="Docker.mysql.filebeat: Compose Deployment">
+    <configuration name="AdapterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ecosystem.adapter.main" />
-      <selectedOptions>
-        <option name="environmentVariables" />
-      </selectedOptions>
       <option name="SPRING_BOOT_MAIN_CLASS" value="net.platform.services.ecosystem.adapter.AdapterApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="net.platform.services.ecosystem.adapter.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="kafka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="elk: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
-          <option name="sourceFilePath" value="docker/kafka/docker-compose.yml" />
+          <option name="sourceFilePath" value="docker/elk/docker-compose.yml" />
         </settings>
       </deployment>
       <method v="2" />
@@ -150,15 +157,10 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="kafka.kafka-ui: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="mysql: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
-          <option name="services">
-            <list>
-              <option value="kafka-ui" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker/kafka/docker-compose.yml" />
+          <option name="sourceFilePath" value="docker/mysql/docker-compose.yml" />
         </settings>
       </deployment>
       <method v="2" />
@@ -176,21 +178,33 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="mysql.filebeat: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="filebeat" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker/mysql/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.kafka.kafka-connect: Compose Deployment" />
-        <item itemvalue="Docker.kafka: Compose Deployment" />
+        <item itemvalue="Docker.mysql.filebeat: Compose Deployment" />
+        <item itemvalue="Docker.mysql: Compose Deployment" />
         <item itemvalue="Docker.mysql.db: Compose Deployment" />
-        <item itemvalue="Docker.kafka.kafka-ui: Compose Deployment" />
-        <item itemvalue="Spring Boot.AdapterApplication" />
+        <item itemvalue="Docker.elk: Compose Deployment" />
+        <item itemvalue="Docker.kafka.kafka-connect: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
       </set>
     </attachedChunks>
   </component>
@@ -203,6 +217,7 @@
       <updated>1763830630662</updated>
       <workItem from="1763830634769" duration="3547000" />
       <workItem from="1763905123541" duration="11118000" />
+      <workItem from="1763954335503" duration="6162000" />
     </task>
     <servers />
   </component>
