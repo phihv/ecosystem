@@ -8,8 +8,9 @@ USER 0
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# --- SỬA LỖI Ở ĐÂY: Dùng 'test -f' ---
 HEALTHCHECK --interval=1s --timeout=5s --retries=120 \
   CMD test -f config/certs/es01/es01.crt || exit 1
+
+USER 0
 
 ENTRYPOINT ["/entrypoint.sh"]

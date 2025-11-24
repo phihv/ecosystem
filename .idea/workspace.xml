@@ -5,16 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="820d538b-1224-47ca-8720-1d7c77aa8a7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/elk/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/elk/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/elk/logstash/pipeline/logstash.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/elk/setup/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/elk/setup/entrypoint.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/mysql/filebeat/config/filebeat.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/datasource/PrimaryDataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/datasource/PrimaryDataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/application/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/.env" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/ca/ca.crt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/ca/ca.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/ca/ca.key" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/ca/ca.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/es01/es01.crt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/es01/es01.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/es01/es01.key" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/es01/es01.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/es02/es02.crt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/es02/es02.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/es02/es02.key" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/es02/es02.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/es03/es03.crt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/es03/es03.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/es03/es03.key" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/es03/es03.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/instances.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/instances.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/logstash/logstash.crt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/logstash/logstash.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/certs/logstash/logstash.key" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/certs/logstash/logstash.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/filebeat/config/filebeat.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/filebeat/config/filebeat.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/logstash/config/logstash.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/logstash/config/logstash.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/logstash/pipeline/logstash.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/logstash/pipeline/logstash.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/setup/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/setup/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/elk/setup/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/elk/setup/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/kafka/jaas_config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/jaas_config.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/kafka/kafka-connect/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/kafka-connect/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/kafka/password-file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/password-file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/mysql/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/init-scripts/001_create_mysql_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/init-scripts/001_create_mysql_users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/mysql/init-scripts/002_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/init-scripts/002_users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/domain/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env-application" beforeDir="false" afterPath="$PROJECT_DIR$/env-application" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +63,17 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ecosystem" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ecosystem" type="f1a62948:ProjectNode" />
+                <item name="adapter" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -54,18 +90,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "phihv"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;phihv&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/phihv/ecosystem.git",
-    "accountId": "ac8db76f-bee8-4b7f-a202-4ad7effa3cad"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/phihv/ecosystem.git&quot;,
+    &quot;accountId&quot;: &quot;ac8db76f-bee8-4b7f-a202-4ad7effa3cad&quot;
   }
-}]]></component>
+}</component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\phihv\.gradle\wrapper\dists\gradle-9.2.0-bin\11i5gvueggl8a5cioxuftxrik\gradle-9.2.0" javaHome="C:\Users\phihv\.jdks\openjdk-25.0.1" gradleVersion="9.2.0" />
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -83,38 +119,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Docker.elk: Compose Deployment.executor": "Run",
-    "Docker.kafka.kafka-connect: Compose Deployment.executor": "Run",
-    "Docker.kafka.kafka-ui: Compose Deployment.executor": "Run",
-    "Docker.kafka: Compose Deployment.executor": "Run",
-    "Docker.mysql.db: Compose Deployment.executor": "Run",
-    "Docker.mysql.filebeat: Compose Deployment.executor": "Run",
-    "Docker.mysql: Compose Deployment.executor": "Run",
-    "Gradle.Build ecosystem.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AdapterApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/projects/phihv/ecosystem/docker",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Docker.elk: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.kafka.kafka-connect: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.kafka.kafka-ui: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.kafka: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.mysql.db: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.mysql.filebeat: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build ecosystem.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AdapterApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/projects/phihv/ecosystem/docker&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\projects\phihv\ecosystem\docker" />
@@ -122,7 +158,7 @@
       <recent name="D:\project\phihv\ecosystem\ecosystem\adapter\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.mysql.filebeat: Compose Deployment">
+  <component name="RunManager" selected="Docker.elk: Compose Deployment">
     <configuration name="AdapterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ecosystem.adapter.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="net.platform.services.ecosystem.adapter.AdapterApplication" />
@@ -193,10 +229,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.elk: Compose Deployment" />
         <item itemvalue="Docker.mysql.filebeat: Compose Deployment" />
         <item itemvalue="Docker.mysql: Compose Deployment" />
         <item itemvalue="Docker.mysql.db: Compose Deployment" />
-        <item itemvalue="Docker.elk: Compose Deployment" />
         <item itemvalue="Docker.kafka.kafka-connect: Compose Deployment" />
       </list>
     </recent_temporary>

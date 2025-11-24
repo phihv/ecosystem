@@ -12,16 +12,24 @@ services:
       - "3306:3306" # Map host port 3306 to container port 3306
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./db/logs:/var/log/mysql
+      - mysql_logs_shared:/var/log/mysql
       - ./init-scripts:/docker-entrypoint-initdb.d
     command:
       --general-log=1
       --general_log_file=/var/log/mysql/general.log
     restart: always
+    entrypoint: >
+      sh -c "
+        chown -R 1000:1000 /var/log/mysql &&
+        exec docker-entrypoint.sh mysqld
+      "
     networks:
       - kafka-net
 volumes:
   mysql_data:
+  mysql_logs_shared:
+    external: true
+
 
 networks:
   kafka-net:

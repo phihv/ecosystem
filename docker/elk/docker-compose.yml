@@ -185,8 +185,11 @@ services:
         condition: service_healthy
     image: docker.elastic.co/logstash/logstash:${STACK_VERSION}
     volumes:
+      - logstash_data:/usr/share/logstash/data
+      - mysql_logs_shared:/var/log/mysql_logs:ro
       - ./certs:/usr/share/logstash/certs:ro
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
     ports:
       - "5044:5044"
       - "9600:9600"
@@ -197,33 +200,9 @@ services:
       - LOGSTASH_PASSWORD=${LOGSTASH_PASSWORD}
       - SSL_CA=/usr/share/logstash/certs/ca/ca.crt
     mem_limit: 2048m
+    user: "1000:1000"
     networks:
       - kafka-net
-
-  filebeat:
-    image: docker.elastic.co/beats/filebeat:7.17.29
-    container_name: filebeat_mysql_log
-    user: root
-    volumes:
-      - ./filebeat/config:/usr/share/filebeat/config
-      - ../mysql/db/logs:/var/log/mysql/
-      - ./certs/ca/ca.crt:/etc/filebeat/ssl/ca.crt:ro
-    networks:
-      - kafka-net
-    depends_on:
-      - logstash
-    command:
-      - /bin/bash
-      - -c
-      - |
-        echo "Waiting for DB startup..."
-        sleep 10
-        echo "Fixing MySQL log permission..."
-        chmod 644 /var/log/mysql/general.log
-        echo "Fixing Filebeat config security permission..."
-        chmod go-w /usr/share/filebeat/config/filebeat.yml # Lệnh FIX lỗi hiện tại
-        echo "Starting Filebeat..."
-        /usr/share/filebeat/filebeat -e -c /usr/share/filebeat/config/filebeat.yml
 
 volumes:
   certs:
@@ -236,6 +215,10 @@ volumes:
     driver: local
   kibanadata:
     driver: local
+  logstash_data:
+    driver: local
+  mysql_logs_shared:
+    external: true
 
 networks:
   kafka-net:
