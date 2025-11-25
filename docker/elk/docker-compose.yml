@@ -15,7 +15,7 @@ services:
       - KIBANA_PASSWORD=${KIBANA_PASSWORD}
       - LOGSTASH_PASSWORD=${LOGSTASH_PASSWORD}
     networks:
-      - kafka-net
+      - ecosystem-net
 
   es01:
     container_name: es01
@@ -49,7 +49,7 @@ services:
       - xpack.ml.use_auto_machine_memory_percent=true
     mem_limit: 2048m
     networks:
-      - kafka-net
+      - ecosystem-net
     ulimits:
       memlock:
         soft: -1
@@ -93,7 +93,7 @@ services:
       - xpack.ml.use_auto_machine_memory_percent=true
     mem_limit: 2048m
     networks:
-      - kafka-net
+      - ecosystem-net
     ulimits:
       memlock:
         soft: -1
@@ -137,7 +137,7 @@ services:
       - xpack.ml.use_auto_machine_memory_percent=true
     mem_limit: 2048m
     networks:
-      - kafka-net
+      - ecosystem-net
     ulimits:
       memlock:
         soft: -1
@@ -176,7 +176,7 @@ services:
     mem_limit: 2048m
 
     networks:
-      - kafka-net
+      - ecosystem-net
 
   logstash:
     container_name: logstash
@@ -200,9 +200,28 @@ services:
       - LOGSTASH_PASSWORD=${LOGSTASH_PASSWORD}
       - SSL_CA=/usr/share/logstash/certs/ca/ca.crt
     mem_limit: 2048m
-    user: "1000:1000"
     networks:
-      - kafka-net
+      - ecosystem-net
+
+  filebeat:
+    container_name: filebeat
+    depends_on:
+      - logstash
+    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+    user: root
+    volumes:
+      - ./filebeat/config/filebeat.yml:/tmp/filebeat.yml:ro
+      - mysql_logs_shared:/var/log/mysql_logs:ro
+      - ./certs:/usr/share/filebeat/certs:ro
+      - filebeat_data:/usr/share/filebeat/data
+    environment:
+      - ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}
+    networks:
+      - ecosystem-net
+    command: >
+      /bin/sh -c "cp /tmp/filebeat.yml /usr/share/filebeat/filebeat.yml &&
+        chmod 644 /usr/share/filebeat/filebeat.yml &&
+        filebeat -e -c /usr/share/filebeat/filebeat.yml"
 
 volumes:
   certs:
@@ -218,8 +237,10 @@ volumes:
   logstash_data:
     driver: local
   mysql_logs_shared:
-    external: true
+    name: mysql_logs_shared
+  filebeat_data:
+    name: filebeat_data
 
 networks:
-  kafka-net:
-    external: true
+  ecosystem-net:
+    name: ecosystem-net

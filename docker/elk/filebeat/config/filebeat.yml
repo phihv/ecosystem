@@ -1,21 +1,19 @@
 filebeat.inputs:
   - type: filestream
-    id: mysql-general-logs
+    id: mysql-slowlog
     enabled: true
-    # Đọc log từ đường dẫn VOLUME đã mount
     paths:
-      - /var/log/mysql/general.log
-
+      - /var/log/mysql_logs/slow.log
     fields:
-      log_type: database_query
+      log_type: mysql_slow
+    ignore_older: 0
 
-# Định nghĩa output tới Logstash ngoài
 output.logstash:
-  # Sử dụng biến môi trường LS_HOST_IP (IP của máy chủ chạy Logstash)
   hosts: ["logstash:5044"]
+  ssl:
+    certificate_authorities: ["/usr/share/filebeat/certs/ca/ca.crt"]
+   # certificate: "/usr/share/filebeat/certs/logstash/logstash.crt"
+   # key: "/usr/share/filebeat/certs/logstash/logstash.key"
 
-  # Cấu hình bảo mật (Giả định Logstash yêu cầu SSL/TLS)
-  ssl.enabled: true
-  # Đường dẫn đến CA Certificate trong container Filebeat
-  ssl.certificate_authorities: ["/etc/filebeat/ssl/ca.crt"]
-  ssl.verification_mode: certificate
+setup.template.enabled: true
+setup.ilm.enabled: false

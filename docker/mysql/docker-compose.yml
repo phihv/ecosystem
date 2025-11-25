@@ -15,22 +15,19 @@ services:
       - mysql_logs_shared:/var/log/mysql
       - ./init-scripts:/docker-entrypoint-initdb.d
     command:
-      --general-log=1
-      --general_log_file=/var/log/mysql/general.log
+      --slow-query-log=1
+      --slow_query_log_file=/var/log/mysql/slow.log
+      --long_query_time=0.5
+      --log-output=FILE
+
     restart: always
-    entrypoint: >
-      sh -c "
-        chown -R 1000:1000 /var/log/mysql &&
-        exec docker-entrypoint.sh mysqld
-      "
     networks:
-      - kafka-net
+      - ecosystem-net
 volumes:
   mysql_data:
   mysql_logs_shared:
-    external: true
-
+    name: mysql_logs_shared
 
 networks:
-  kafka-net:
-    external: true
+  ecosystem-net:
+    name: ecosystem-net

@@ -81,6 +81,25 @@ until curl -s -X POST --cacert ${CERTS_DIR}/ca/ca.crt \
   https://es01:9200/_security/user/kibana_system/_password \
   -d "{\"password\":\"${KIBANA_PASSWORD}\"}" | grep -q "^{}"; do sleep 10; done;
 
+
+echo "Creating or updating logstash_writer role";
+until curl -s -X PUT --cacert ${CERTS_DIR}/ca/ca.crt \
+  -u "elastic:${ELASTIC_PASSWORD}" \
+  -H "Content-Type: application/json" \
+  https://es01:9200/_security/role/logstash_writer \
+  -d '{
+    "cluster": ["manage_index_templates","monitor"],
+    "indices": [
+      {
+        "names": ["logs-*","filebeat-*"],
+        "privileges": ["write","create","create_index","read"]
+      }
+    ]
+  }' | grep -q '"role"'; do
+  echo "Retrying creating logstash_writer role...";
+  sleep 10;
+done;
+
 echo "Creating or updating logstash_internal user";
 # Dùng grep '{"user":' hoặc 'created' để xác nhận thành công
 until curl -X POST --cacert ${CERTS_DIR}/ca/ca.crt \
