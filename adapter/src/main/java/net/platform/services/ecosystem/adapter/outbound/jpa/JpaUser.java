@@ -2,12 +2,14 @@ package net.platform.services.ecosystem.adapter.outbound.jpa;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDateTime;
 
+@Builder
 @Entity
 @Table(name = "users")
 @Data
@@ -21,11 +23,17 @@ public class JpaUser {
     @Column(name = "username", length = 50, nullable = false)
     private String username;
 
-    @Column(name = "fullname", length = 100, nullable = false)
-    private String fullname;
+    @Column(name = "password", length = 100, nullable = false)
+    private String password;
+
+    @Column(name = "first_name", length = 100, nullable = false)
+    private String firstName;
+
+    @Column(name = "last_name", length = 100, nullable = false)
+    private String lastName;
 
     @Column(name = "status", nullable = false)
-    private Short status = 1;
+    private Integer status = 1;
 
     @Column(name = "created_at", insertable = false, nullable = false, updatable = false)
     private LocalDateTime createdAt;

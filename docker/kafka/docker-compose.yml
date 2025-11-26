@@ -24,7 +24,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
     networks:
-      - kafka-net
+      - ecosystem-net
     healthcheck:
       test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka-1:9094 > /dev/null 2>&1 || exit 1" ]
       interval: 10s
@@ -57,7 +57,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
     networks:
-      - kafka-net
+      - ecosystem-net
     healthcheck:
       test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka-2:9094 > /dev/null 2>&1 || exit 1" ]
       interval: 10s
@@ -91,7 +91,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
     networks:
-      - kafka-net
+      - ecosystem-net
     healthcheck:
       test: [ "CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka-3:9094 > /dev/null 2>&1 || exit 1" ]
       interval: 10s
@@ -144,7 +144,7 @@ services:
       - kafka-2
       - kafka-3
     networks:
-      - kafka-net
+      - ecosystem-net
 
   schema-registry:
     image: confluentinc/cp-schema-registry:latest
@@ -175,7 +175,7 @@ services:
       - kafka-2
       - kafka-3
     networks:
-      - kafka-net
+      - ecosystem-net
 
   kafka-ui:
     container_name: kafka-ui
@@ -196,7 +196,7 @@ services:
       - kafka-2
       - kafka-3
     networks:
-      - kafka-net
+      - ecosystem-net
 
 volumes:
   kafka-data-1:
@@ -204,5 +204,5 @@ volumes:
   kafka-data-3:
 
 networks:
-  kafka-net:
-    external: true
+  ecosystem-net:
+    name: ecosystem-net
