@@ -1,4 +1,11 @@
+server:
+  port: ${SERVER_PORT}
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OAUTH2_JWKS_URI}
   datasource:
     primary:
       url: jdbc:mysql://${MYSQL_PRIMARY_DB_HOST}:${MYSQL_PRIMARY_DB_PORT}/${MYSQL_PRIMARY_DB_NAME}?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull

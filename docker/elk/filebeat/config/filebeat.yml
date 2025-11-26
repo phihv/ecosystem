@@ -4,6 +4,12 @@ filebeat.inputs:
     enabled: true
     paths:
       - /var/log/mysql_logs/slow.log
+    parsers:
+      - multiline:
+          type: pattern
+          pattern: '^\# Time:'
+          negate: true
+          match: after
     fields:
       log_type: mysql_slow
     ignore_older: 0
