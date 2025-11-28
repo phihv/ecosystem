@@ -1,5 +1,6 @@
 package net.platform.services.ecosystem.adapter.outbound.adapter;
 
+import lombok.extern.slf4j.Slf4j;
 import net.platform.services.ecosystem.common.ddd.Criteria;
 import net.platform.services.ecosystem.common.ddd.Identity;
 import net.platform.services.ecosystem.common.ddd.PagedSearchResult;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class UserRepositoryAdapter implements UserRepositoryOutboundPort {
     private final JpaUserRepository jpaUserRepository;
     private final UserMapper userMapper;
@@ -23,6 +25,7 @@ public class UserRepositoryAdapter implements UserRepositoryOutboundPort {
     @Override
     public void save(User var1) {
         jpaUserRepository.save(userMapper.toJpa(var1));
+        log.info("User saved: {}", var1);
     }
 
     @Override

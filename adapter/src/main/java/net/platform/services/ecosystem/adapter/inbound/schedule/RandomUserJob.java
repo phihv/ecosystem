@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class RandomUserJob {
     private final UserFacade facade;
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 10000)
     public void runJob() {
         facade.createRandomUser();
     }
