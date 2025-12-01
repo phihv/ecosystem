@@ -1,0 +1,21 @@
+# prometheus/prometheus.yml
+global:
+  # Thiết lập khoảng thời gian mặc định để thu thập metrics
+  scrape_interval: 15s
+  external_labels:
+    monitor: 'kafka-streams-monitor'
+
+# Cấu hình các mục tiêu scrape
+scrape_configs:
+  # Mục tiêu 1: Prometheus Server (tự giám sát)
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Mục tiêu 2: Ứng dụng Kafka Streams của bạn (Spring Boot Actuator)
+  - job_name: 'kafka-streams-app'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      # Tên service Spring Boot và cổng (mặc định 8080 cho Actuator)
+      # Giả định tên service Spring Boot của bạn là 'streams-app'
+      - targets: ['host.docker.internal:8888']

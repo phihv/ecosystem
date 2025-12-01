@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="820d538b-1224-47ca-8720-1d7c77aa8a7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/kafka/KafkaStreamsTopology.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/grafana/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/prometheus/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/prometheus/prometheus.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adapter/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/AdapterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/AdapterApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/kafka/KafkaStreamsTopology.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/kafka/KafkaStreamsTopology.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adapter/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env-application" beforeDir="false" afterPath="$PROJECT_DIR$/env-application" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +103,7 @@
     "Docker.mysql.db: Compose Deployment.executor": "Run",
     "Docker.mysql.filebeat: Compose Deployment.executor": "Run",
     "Docker.mysql: Compose Deployment.executor": "Run",
+    "Docker.prometheus: Compose Deployment.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "Gradle.Build ecosystem.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
@@ -117,7 +119,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AdapterApplication.executor": "Run",
+    "Spring Boot.AdapterApplication.executor": "Debug",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/projects/phihv/ecosystem/docker",
@@ -192,14 +194,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="mysql: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker/mysql/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="mysql.filebeat: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -213,21 +207,29 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="prometheus: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker/prometheus/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Docker.prometheus: Compose Deployment" />
       <item itemvalue="Docker.grafana: Compose Deployment" />
       <item itemvalue="Docker.localstack: Compose Deployment" />
       <item itemvalue="Docker.elk: Compose Deployment" />
       <item itemvalue="Docker.mysql.filebeat: Compose Deployment" />
-      <item itemvalue="Docker.mysql: Compose Deployment" />
       <item itemvalue="Spring Boot.AdapterApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.prometheus: Compose Deployment" />
         <item itemvalue="Docker.grafana: Compose Deployment" />
         <item itemvalue="Docker.localstack: Compose Deployment" />
         <item itemvalue="Docker.elk: Compose Deployment" />
         <item itemvalue="Docker.mysql.filebeat: Compose Deployment" />
-        <item itemvalue="Docker.mysql: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +255,7 @@
       <workItem from="1764261448224" duration="1471000" />
       <workItem from="1764348082524" duration="841000" />
       <workItem from="1764514082415" duration="5353000" />
+      <workItem from="1764599027605" duration="6897000" />
     </task>
     <servers />
   </component>

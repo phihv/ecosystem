@@ -39,6 +39,9 @@ tasks.compileJava {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://packages.confluent.io/maven/")
+    }
 }
 
 dependencies {
@@ -51,6 +54,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("io.confluent:kafka-streams-avro-serde:7.6.1")
+    implementation("io.confluent:kafka-schema-registry-client:7.6.1")
+
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("io.micrometer:micrometer-registry-prometheus")
+    implementation("io.micrometer:micrometer-core")
+
     runtimeOnly("com.mysql:mysql-connector-j")
 
     implementation("org.springframework.kafka:spring-kafka")

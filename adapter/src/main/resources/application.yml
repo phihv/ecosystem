@@ -13,6 +13,9 @@ spring:
       application-id: user-stream-processor-app
       state-dir: /tmp/kafka-streams
       properties:
+        schema.registry.url: http://localhost:8081
+        basic.auth.credentials.source: USER_INFO
+        basic.auth.user.info: admin:12345
         default:
           key:
             serde: org.apache.kafka.common.serialization.Serdes$StringSerde
@@ -56,3 +59,16 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+  metrics:
+    tags:
+      application: ${SPRING_APPLICATION_NAME}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
