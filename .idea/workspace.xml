@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="820d538b-1224-47ca-8720-1d7c77aa8a7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/postgre/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/datasource/PrimaryDataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/net/platform/services/ecosystem/adapter/configuration/datasource/PrimaryDataSourceConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +245,11 @@
       <workItem from="1767027592936" duration="996000" />
       <workItem from="1767050405348" duration="618000" />
       <workItem from="1767109855614" duration="3469000" />
-      <workItem from="1767114672558" duration="3628000" />
+      <workItem from="1767114672558" duration="3804000" />
+      <workItem from="1767363569758" duration="2540000" />
+      <workItem from="1767396082123" duration="605000" />
+      <workItem from="1767447610635" duration="1203000" />
+      <workItem from="1767624290901" duration="1241000" />
     </task>
     <servers />
   </component>
