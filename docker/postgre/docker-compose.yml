@@ -13,6 +13,8 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql
+    networks:
+      - onesubs-network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -25,6 +27,12 @@ services:
       - "5050:80"
     depends_on:
       - postgres
+    networks:
+      - onesubs-network
 
 volumes:
   pgdata:
+
+networks:
+  onesubs-network:
+    name: onesubs-network
